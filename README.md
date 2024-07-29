@@ -12,4 +12,4 @@ A FiveM billing resource.
 
 ### Issues?
 
-Create a new [issue](https://github.com/boofiboi/FiveM-Discord-Presence/issues/new) or message me on Discord: boofiboi
+Create a new [issue](https://github.com/boofiboi/bo-billing/issues) or message me on Discord: boofiboi
