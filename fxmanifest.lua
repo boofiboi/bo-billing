@@ -5,7 +5,12 @@ author 'boofiboi'
 description 'Billing script'
 version 'alpha'
 
-shared_script 'config.lua'
 server_script '@oxmysql/lib/MySQL.lua'
 server_script 'server/server.lua'
 client_script 'client/client.lua'
+
+ui_page 'NUI/index.html'
+
+files{
+    'NUI/index.html',
+}

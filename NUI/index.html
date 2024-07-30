@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bills</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: none; /* Keep the container hidden by default */
+            background-color: rosybrown;
+            margin: 0;
+            border-radius: 10px; /* Add border-radius property */
+            width:500px;
+        }
+        .main {
+            display: flex;
+
+        }
+        .sidebar {
+            flex: 0 0 50px;
+            background-color: lightgray;
+            padding: 20px;
+            border-top-left-radius: 10px; /* Add border-top-left-radius property */
+            border-bottom-left-radius: 10px; /* Add border-bottom-left-radius property */
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar li a {
+            display: block;
+            padding: 10px;
+            background-color: lightblue;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .sidebar li a:hover {
+            background-color: blue;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            text-align: center; /* Add text-align property */
+            justify-content:center;
+            align-content:center;
+
+        }
+        .contenthidden {
+            display:none;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="main">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#" onclick="changeContent('send-bill')">Send Bill</a></li>
+                    <li><a href="#" onclick="changeContent('received-bills')">Received Bills</a></li>
+                    <li><a href="#" onclick="changeContent('sent-bills')">Sent Bills</a></li>
+                    <li><a href="#" onclick="changeContent('options')">Options</a></li>
+                </ul>
+            </div>
+
+            <div class="content" id="content">
+                <h1>Send bill</h1>
+                <h2>rizzing up a gyatt in ohio</h2>
+            </div>
+            <div class="contenthidden" id="send-bill">
+                <h1>Send bill</h1>
+                <h2>rizzing up a gyatt in ohio</h2>
+            </div>
+            <div class="contenthidden" id="received-bills">
+                <h1>Received bills</h1>
+                <h2>rizzing up a gyatt in ohio</h2>
+            </div>
+            <div class="contenthidden" id="sent-bills">
+                <h1>Sent Bills</h1>
+                <h2>rizzing up a gyatt in ohio</h2>
+            </div>
+            <div class="contenthidden" id="options">
+                <h1>Options</h1>
+                <h2>rizzing up a gyatt in ohio</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeContent(contentId) {
+            var content = document.getElementById(contentId).innerHTML;
+            document.getElementById('content').innerHTML = content;
+        }
+
+        // JavaScript code to show the container when a message is received
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'open') {
+                document.getElementById('container').style.display = 'block';
+            }
+        });
+        // JavaScript code to close the container when the player presses ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.getElementById('container').style.display = 'none';
+                // Set NUI focus to false
+                $.post("https://bo-billing/closebills")
+            }
+        });
+    </script>
+</body>
+</html>

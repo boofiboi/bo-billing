@@ -1,0 +1,6 @@
+identifier = Reciever charID
+sender = Sender charID
+target_type = Could be used depending if billing a person/a job?
+target = Who to bill (jobname/reciever charID)
+label = Label of the bill (Could be: "Fine", "Car repairs" etc.)
+amount = self explanatory
